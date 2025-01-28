@@ -19,7 +19,7 @@ services:
 
 networks:
   auction-network:
-    mode: bridge
+    driver: bridge
 
 volumes:
   postgres-data:
