@@ -19,7 +19,7 @@ async fn main() {
 fn router(db_pool: PgPool) -> Router {
     Router::new()
         .route("/", get(|| async { "Hello World!" }))
-        .route("/user", get(|| async { "Sign In" }))
-        .route("/user", post(|| async { "Sign Up" }))
+        .route("/users/me", get(user::sign_in))
+        .route("/users", post(user::sign_up))
         .with_state(db_pool)
 }
